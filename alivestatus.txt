@@ -1,0 +1,3 @@
+code	alivestatus_annotation
+0	alive
+1	dead

@@ -1,0 +1,18 @@
+Week02 Exercise
+
+1) How many patients are alive ?
+
+
+2) What is the average survival time based on maritalstatus ?
+
+
+3) Number of patients who are married and alive
+
+
+4) Count the number of patients grouped by maritalstatus
+
+
+5) Create a new entry in marital status called complicated with code 6
+
+
+6) Repeat 4 . Do you see the number of patients with complicated ?

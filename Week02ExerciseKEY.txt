@@ -1,0 +1,91 @@
+Week02 Exercise
+
+1) How many patients are alive ?
+
+select count(*) from demographic where alivestatus=0
+
+select count(*) from demographic,alivestatus 
+where demographic.alivestatus = alivestatus.code
+and alivestatus.alivestatus_annotation="alive"
+order by patientid
+
+select count(patientid) from demographic where alivestatus in 
+(select code from alivestatus where alivestatus_annotation="alive")
+
+select count(patientid) from demographic 
+JOIN alivestatus on demographic.alivestatus=alivestatus.code 
+where alivestatus_annotation="alive"
+
+2) What is the average survival time based on maritalstatus ?
+
+select maritalstatus.maritalstatus_annotation, AVG(survivaltime) 
+from demographic,maritalstatus 
+where demographic.maritalstatus = maritalstatus.code
+group by maritalstatus
+
+select maritalstatus.maritalstatus_annotation, AVG(survivaltime) 
+from demographic JOIN maritalstatus 
+ON demographic.maritalstatus = maritalstatus.code
+group by maritalstatus
+
+3) Number of patients who are married and alive
+
+select count(patientid) from demographic, maritalstatus, alivestatus 
+where demographic.maritalstatus = maritalstatus.code and
+demographic.alivestatus = alivestatus.code and
+maritalstatus.maritalstatus_annotation = "'married'" and
+alivestatus.alivestatus_annotation="alive"
+
+select count(patientid) from demographic 
+JOIN maritalstatus
+ON demographic.maritalstatus = maritalstatus.code
+JOIN alivestatus 
+ON demographic.alivestatus = alivestatus.code
+where maritalstatus.maritalstatus_annotation = "'married'" and
+alivestatus.alivestatus_annotation="alive"
+
+
+4) Count the number of patients grouped by maritalstatus
+
+select maritalstatus.maritalstatus_annotation, count(patientid) from demographic 
+JOIN maritalstatus
+ON demographic.maritalstatus = maritalstatus.code
+JOIN alivestatus 
+ON demographic.alivestatus = alivestatus.code
+group by maritalstatus
+
+5) Create a new entry in marital status called complicated with code 6
+insert into maritalstatus 
+values (6, "'complicated'")
+
+insert into maritalstatus 
+values (7, "undefined")
+
+
+6) Repeat 4 . Do you see the number of patients with complicated ?
+
+select maritalstatus.maritalstatus_annotation, 
+count(patientid) from maritalstatus 
+LEFT JOIN demographic 
+ON demographic.maritalstatus = maritalstatus.code
+group by maritalstatus.maritalstatus_annotation
+
+
+7) Create a view and query it.
+
+CREATE VIEW quickstatus AS
+    SELECT patientid,
+           maritalstatus.maritalstatus_annotation
+      FROM maritalstatus
+           LEFT JOIN
+           demographic ON demographic.maritalstatus = maritalstatus.code;
+
+select count(patientid), maritalstatus_annotation from quickstatus
+group by maritalstatus_annotation
+
+8) Update one of the entries check to see if the view has updated.
+
+update demographic set maritalstatus=6 where patientid="pid00001"
+
+select count(patientid), maritalstatus_annotation from quickstatus
+group by maritalstatus_annotation

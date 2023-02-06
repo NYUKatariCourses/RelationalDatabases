@@ -1,0 +1,68 @@
+Week02 Exercise
+
+1) How many patients are alive ?
+SELECT count(*)
+  FROM demographic,
+       alivestatus
+ WHERE demographic.alivestatus = alivestatus.code AND 
+       alivestatus.alivestatus_annotation = "alive";
+
+SELECT count(*)
+    FROM demographic 
+    JOIN alivestatus ON demographic.alivestatus=alivestatus.code 
+    WHERE alivestatus.alivestatus_annotation = "alive"
+    
+
+2) What is the average survival time based on maritalstatus ?
+SELECT marital_status.maritalstatus_annotation,
+       avg(survivaltime) AS avg_survivaltime
+  FROM marital_status 
+       JOIN
+       demographic ON demographic.maritalstatus = marital_status.code
+ GROUP BY maritalstatus;
+
+
+3) Number of patients who are married and alive
+
+SELECT *
+  FROM demographic
+       JOIN
+       alivestatus ON demographic.alivestatus = alivestatus.code
+       JOIN
+       marital_status ON demographic.maritalstatus = marital_status.code
+ WHERE alivestatus.alivestatus_annotation = "alive" AND 
+       marital_status.maritalstatus_annotation like "%married%";
+
+
+4) Count the number of patients grouped by maritalstatus
+
+
+
+5) Create a new entry in marital status called complicated with code 6
+
+
+6) Repeat 4 . Do you see the number of patients with complicated ?
+SELECT marital_status.maritalstatus_annotation,
+       avg(survivaltime) AS avg_survivaltime
+  FROM marital_status 
+       LEFT JOIN
+       demographic ON demographic.maritalstatus = marital_status.code
+ GROUP BY maritalstatus;
+
+
+7) Query using a view
+
+CREATE VIEW marital_alivestatus AS
+    SELECT *
+      FROM demographic
+           JOIN
+           alivestatus ON demographic.alivestatus = alivestatus.code
+           JOIN
+           marital_status ON demographic.maritalstatus = marital_status.code;
+
+SELECT count(*)
+  FROM marital_alivestatus
+ WHERE alivestatus_annotation = "alive" AND 
+       maritalstatus_annotation LIKE "%married%";
+
+

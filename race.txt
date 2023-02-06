@@ -1,0 +1,4 @@
+code	race_annotation
+1	'black'
+2	'white'
+3	'other'

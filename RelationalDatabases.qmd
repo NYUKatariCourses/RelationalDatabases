@@ -1,0 +1,25 @@
+---
+title: "RelationalDatabases"
+author: "Manpreet S Katari"
+format: 
+    revealjs:
+        theme: serif
+        highlight-style: tango
+        code-line-numbers: false
+        code-block-border-left: true
+        code-block-background: true
+editor: visual
+---
+
+```{=html}
+<style>
+    .reveal section code.sql {
+    font-size: 1.0em;
+  }
+    .reveal table, th, td {
+        border: 1px solid;
+        font-size: 0.8em;
+    }
+</style>
+```
+## 

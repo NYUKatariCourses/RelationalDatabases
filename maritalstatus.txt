@@ -1,0 +1,6 @@
+code	maritalstatus_annotation
+1	'divorced/separated'
+2	'married'
+3	'single'
+4	'unknown'
+5	'widowed'
