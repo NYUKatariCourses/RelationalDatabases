@@ -1,5 +1,5 @@
 ---
-title: "RelationalDatabases"
+title: "Relational Databases"
 author: "Manpreet S Katari"
 format: 
     revealjs:
@@ -7,8 +7,13 @@ format:
         highlight-style: tango
         code-line-numbers: false
         code-block-border-left: true
-        code-block-background: true
+        code-block-background: true 
+        margin: 0.1
 editor: visual
+output:
+    xaringan::moon_reader:
+        css: [default, metropolis, metropolis-fonts]
+
 ---
 
 ```{=html}
@@ -20,9 +25,21 @@ editor: visual
         border: 1px solid;
         font-size: 0.8em;
     }
+
+    .reveal section p {
+        font-size: 0.8em;
+    }
+
+    .reveal section ul {
+        font-size: 0.8em;
+    }
+
 </style>
 ```
-## What is a rational database?
+
+----
+
+### What is a relational database?
 
 -   Originally developed by E.F Codd in 1970
 
@@ -32,7 +49,9 @@ editor: visual
 
 -   The data within tables in the same database should all be related somehow.
 
-## Parts of a database
+----
+
+### Parts of a database
 
 -   Records become "rows" (aka "tuples")
 
@@ -40,33 +59,32 @@ editor: visual
 
 -   Rules determine the relationship between the tables and tie the data together to form a database
 
-## Creating a database
+----
 
--   what information are we trying to store?
+### Creating a database
+
+
+-   What information are we trying to store?
 
 -   How do we describe the information?
 
--   Phone book/Contact entries
 
-     - Name
+| Phone book/Contact entries |
+|---------------------------|
+| Name |
+|Address|
+|Company|
+|Phone Number|
+| URL/Web page |
+| Age |
+|Height (in meters) |
+|Birthday |
+|When we added the entry |
 
-     - Address
+----
 
-     - Company
+### Data Types 
 
-    \- Phone Number
-
-    \- URL/Web page
-
-    \- Age
-
-    \- Height (in meters)
-
-    \- Birthday
-
-    \- When we added the entry
-
-## Data Types
 
 -   Binary
 
@@ -89,9 +107,13 @@ editor: visual
 -   Temporal
 
     \- Time, Date, Timestamp
+</p>
 
-## Phone book/Contact Record
+----
 
+### Phone book/Contact Record
+
+::: {style="font-size: 0.8em"}
 Name Character
 
 Address Character
@@ -109,6 +131,10 @@ Height Real (float)
 Birthday Date
 
 When we added the entry Timestamp
+
+:::
+
+----
 
 ## "Normal Forms"
 

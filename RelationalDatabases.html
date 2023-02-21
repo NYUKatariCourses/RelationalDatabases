@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.2.313">
 
   <meta name="author" content="Manpreet S Katari">
-  <title>RelationalDatabases</title>
+  <title>Relational Databases</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -324,7 +324,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">RelationalDatabases</h1>
+  <h1 class="title">Relational Databases</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -346,10 +346,20 @@ Manpreet S Katari
         border: 1px solid;
         font-size: 0.8em;
     }
+
+    .reveal section p {
+        font-size: 0.8em;
+    }
+
+    .reveal section ul {
+        font-size: 0.8em;
+    }
+
 </style>
 </section>
-<section id="what-is-a-rational-database" class="slide level2">
-<h2>What is a rational database?</h2>
+<section class="slide level2">
+
+<h3 id="what-is-a-relational-database">What is a relational database?</h3>
 <ul>
 <li><p>Originally developed by E.F Codd in 1970</p></li>
 <li><p>Organizes data into tables where each item is a row and the attributes of the item are in columns.</p></li>
@@ -357,35 +367,62 @@ Manpreet S Katari
 <li><p>The data within tables in the same database should all be related somehow.</p></li>
 </ul>
 </section>
-<section id="parts-of-a-database" class="slide level2">
-<h2>Parts of a database</h2>
+<section class="slide level2">
+
+<h3 id="parts-of-a-database">Parts of a database</h3>
 <ul>
 <li><p>Records become “rows” (aka “tuples”)</p></li>
 <li><p>Attributes/fields become “columns”</p></li>
 <li><p>Rules determine the relationship between the tables and tie the data together to form a database</p></li>
 </ul>
 </section>
-<section id="creating-a-database" class="slide level2">
-<h2>Creating a database</h2>
+<section class="slide level2">
+
+<h3 id="creating-a-database">Creating a database</h3>
 <ul>
-<li><p>what information are we trying to store?</p></li>
+<li><p>What information are we trying to store?</p></li>
 <li><p>How do we describe the information?</p></li>
-<li><p>Phone book/Contact entries</p>
-<ul>
-<li><p>Name</p></li>
-<li><p>Address</p></li>
-<li><p>Company</p></li>
 </ul>
-<p>- Phone Number</p>
-<p>- URL/Web page</p>
-<p>- Age</p>
-<p>- Height (in meters)</p>
-<p>- Birthday</p>
-<p>- When we added the entry</p></li>
-</ul>
+<table>
+<thead>
+<tr class="header">
+<th>Phone book/Contact entries</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Name</td>
+</tr>
+<tr class="even">
+<td>Address</td>
+</tr>
+<tr class="odd">
+<td>Company</td>
+</tr>
+<tr class="even">
+<td>Phone Number</td>
+</tr>
+<tr class="odd">
+<td>URL/Web page</td>
+</tr>
+<tr class="even">
+<td>Age</td>
+</tr>
+<tr class="odd">
+<td>Height (in meters)</td>
+</tr>
+<tr class="even">
+<td>Birthday</td>
+</tr>
+<tr class="odd">
+<td>When we added the entry</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="data-types" class="slide level2">
-<h2>Data Types</h2>
+<section class="slide level2">
+
+<h3 id="data-types">Data Types</h3>
 <ul>
 <li><p>Binary</p>
 <p>- Database specific binary objects</p>
@@ -397,11 +434,14 @@ Manpreet S Katari
 <li><p>Numeric</p>
 <p>- Integer, Real (floating decimal point), Currency</p></li>
 <li><p>Temporal</p>
-<p>- Time, Date, Timestamp</p></li>
+<p>- Time, Date, Timestamp</p>
+<p></p></li>
 </ul>
 </section>
-<section id="phone-bookcontact-record" class="slide level2">
-<h2>Phone book/Contact Record</h2>
+<section class="slide level2">
+
+<h3 id="phone-bookcontact-record">Phone book/Contact Record</h3>
+<div style="font-size: 0.8em">
 <p>Name Character</p>
 <p>Address Character</p>
 <p>Company Character</p>
@@ -411,6 +451,7 @@ Manpreet S Katari
 <p>Height Real (float)</p>
 <p>Birthday Date</p>
 <p>When we added the entry Timestamp</p>
+</div>
 </section>
 <section id="normal-forms" class="slide level2">
 <h2>“Normal Forms”</h2>
