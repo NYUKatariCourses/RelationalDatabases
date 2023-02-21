@@ -1,5 +1,4 @@
 # RelationalDatabases
 Database Normalizations
 
-- [Lecture](https://nyukataricourses.github.io/RelationalDatabases/)
-- 
+- [Lecture](https://nyukataricourses.github.io/RelationalDatabases/RelationalDatabases.html)
